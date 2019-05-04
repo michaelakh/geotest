@@ -1,0 +1,28 @@
+<%= render 'search' %>
+
+<h1>Offices <%= link_to 'Create a new Office', new_office_path, class:'btn btn-primary' %></h1>
+
+    <% @offices.each do |office| %>
+    <div class="list-group">
+      <%= link_to office, class: 'list-group-item office' do %>
+ 
+        <h4 class="list-group-item-heading"><%= office.name %></h4>
+        <p class="list-group-item-text"> 
+          <%= office.street_ad %>
+          <br>
+          <%= office.county %>, <%= office.town_city %>, <%= office.postcode %>
+          <br>
+          <%= office.country %>
+          <br>
+          Phone no: <%= office.phone_no%>
+          <br>
+          Lon/lat: <%= "#{office.lonlat}"%>
+        </p>
+      <% end %>
+    </div>
+    <% end %>
+
+<br>
+
+<%= link_to 'New Office', new_office_path %>
+

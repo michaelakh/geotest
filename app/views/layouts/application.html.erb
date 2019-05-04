@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= @title == nil ? 'geotest' : @title %></title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class='container'>
+      <%= render 'layouts/header' %>
+      <% flash.each do |key, msg| %>
+        <%= content_tag :div, msg, class: "flash #{key}" %>
+      <% end %>
+      <%= yield %>
+      <%= render 'layouts/footer' %>
+    </div>
+  </body>
+</html>

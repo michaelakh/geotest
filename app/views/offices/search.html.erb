@@ -1,0 +1,26 @@
+<h1> search results </h1>
+<% if @office.length == 0 %>
+  <h3> There was no Offices near <%= params['postcode'].upcase%></h3>
+<% else %>
+  <% @office.each do |office|%>
+    <div class="list-group">
+        <%= link_to office_path(office[0]), class: 'list-group-item office' do %>
+
+          <h4 class="list-group-item-heading"><%= office[1] %> - <%= (office[9]*0.000621371).round(2)%> miles away</h4>
+          <p class="list-group-item-text"> 
+            <%= office[4] %>
+            <br>
+            <%= office[7] %>, <%= office[5] %>, <%= office[3] %>
+            <br>
+            <%= office[2] %>
+            <br>
+            Phone no: <%= office[6] %>
+            <br>
+            
+          </p>
+        <% end %>
+      </div>
+  <% end %>
+  <%= will_paginate @office, renderer: BootstrapPagination::Rails %>
+<% end %>
+<%= link_to 'Back', offices_path %> 

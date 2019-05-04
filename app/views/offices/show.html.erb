@@ -1,0 +1,38 @@
+<p>
+  <strong>Name:</strong>
+  <%= @office.name %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @office.country %>
+</p>
+
+<p>
+  <strong>Postcode:</strong>
+  <%= @office.postcode %>
+</p>
+
+<p>
+  <strong>Street ad:</strong>
+  <%= @office.street_ad %>
+</p>
+
+<p>
+  <strong>Town city:</strong>
+  <%= @office.town_city %>
+</p>
+
+<p>
+  <strong>Phone no:</strong>
+  <%= @office.phone_no %>
+</p>
+
+<p>
+  <strong>County:</strong>
+  <%= @office.county %>
+</p>
+
+<%= link_to 'Edit', edit_office_path(@office) %> |
+<%= link_to 'Back', offices_path %> |
+<%= link_to 'Delete', @office, method: :delete, data: { confirm: 'Are you sure?' } %>

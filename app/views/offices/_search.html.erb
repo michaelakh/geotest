@@ -1,0 +1,16 @@
+<div class='row'>
+  <div class='col-xs-12 search-title'>
+    Search
+  </div>
+</div>
+<nav class="navbar navbar-light bg-faded justify-content-between">
+  <%= form_tag({controller: "offices", action: "search"}, method: "get", class: 'form-inline search') do %>
+      <div class='container'>
+        
+      <%= select_tag(:distance , options_for_select([['within 5 miles',5],['within 10 miles',10],['within 15 miles',15],['within 25 miles',25],['Within 50 miles',50],['within 100 miles',100]]),class: 'form-control') %>
+        <%= label_tag :postcode %>
+        <%= text_field_tag :postcode,'', class: 'search-box form-control'%>
+        <%= submit_tag 'Search', class: 'btn btn-outline-success my-2 my-sm-0'%>
+      </div>
+  <% end %>
+</nav>
